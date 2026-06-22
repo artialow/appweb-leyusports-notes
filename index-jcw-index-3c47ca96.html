@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竞彩网 · 内容导航与场景说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: #f2f4f6;
+            color: #1f2933;
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 顶部导航 */
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e9edf0;
+            margin-bottom: 3rem;
+        }
+
+        .logo-area {
+            font-weight: 600;
+            font-size: 1.4rem;
+            letter-spacing: -0.3px;
+            color: #0f1e2b;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2b3e4e;
+            font-size: 0.95rem;
+            padding: 0.3rem 0.1rem;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s ease, color 0.2s;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #2177b0;
+            color: #0a3146;
+        }
+
+        .nav-links .active {
+            border-bottom-color: #1e6f9f;
+            color: #0b3b57;
+            font-weight: 500;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 3rem 2.5rem;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e1e7ec;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.4px;
+            margin-bottom: 1.2rem;
+            color: #0b2a3f;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 720px;
+            color: #2f4659;
+            margin-bottom: 1.8rem;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: #eef3f7;
+            border-radius: 40px;
+            padding: 0.5rem 1.4rem;
+            font-size: 0.9rem;
+            color: #1d4e72;
+            border: 1px solid #d4dee5;
+            font-weight: 450;
+        }
+
+        /* 核心介绍卡 */
+        .intro-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2.2rem;
+            border: 1px solid #e4e9ee;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.15s;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 20px rgba(0, 20, 30, 0.04);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #103d56;
+        }
+
+        .card p {
+            color: #2b404e;
+            margin-bottom: 0.6rem;
+        }
+
+        .card p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* 三个场景模块 —— 卡片网格 */
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .scene-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 1.8rem;
+            border: 1px solid #dee5eb;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .scene-card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #123f58;
+            margin-bottom: 1rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid #e4ecf2;
+        }
+
+        .scene-card ul {
+            list-style: none;
+        }
+
+        .scene-card li {
+            margin-bottom: 0.6rem;
+            padding-left: 1.2rem;
+            position: relative;
+            color: #2d4455;
+        }
+
+        .scene-card li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #397aa3;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .scene-card .meta-note {
+            margin-top: 1.1rem;
+            font-size: 0.9rem;
+            color: #57748c;
+            border-top: 1px solid #eaf0f4;
+            padding-top: 0.9rem;
+        }
+
+        /* 常见说明 (FAQ 摘要) */
+        .faq-section {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.2rem 2.2rem 1.8rem;
+            border: 1px solid #e3e9ef;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            margin-bottom: 2.8rem;
+        }
+
+        .faq-section h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1.6rem;
+            color: #123b52;
+        }
+
+        .faq-item {
+            margin-bottom: 1.4rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 550;
+            color: #1a4d6b;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item p {
+            color: #2a4355;
+            margin-left: 0.2rem;
+        }
+
+        .faq-item:last-of-type {
+            margin-bottom: 0.6rem;
+        }
+
+        /* 链接句段 */
+        .link-wrap {
+            background: #f7f9fb;
+            border-radius: 20px;
+            padding: 0.8rem 1.6rem;
+            margin: 2rem 0 1.8rem;
+            border: 1px solid #dce3e9;
+            display: inline-block;
+        }
+
+        .link-wrap a {
+            color: #1a6a95;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #8aaec9;
+        }
+
+        .link-wrap a:hover {
+            border-bottom-style: solid;
+            color: #0c4b70;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #657f94;
+            padding-top: 2rem;
+            border-top: 1px solid #dce3e9;
+            margin-top: 2rem;
+        }
+
+        a {
+            transition: color 0.15s;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 1rem;
+            }
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+                padding: 1rem 1.5rem;
+            }
+            .nav-links {
+                gap: 1.4rem;
+            }
+            .hero {
+                padding: 2rem 1.5rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .card, .scene-card {
+                padding: 1.8rem 1.5rem;
+            }
+            .faq-section {
+                padding: 1.8rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 导航 -->
+        <nav class="navbar">
+            <div class="logo-area">⬡ 导航站</div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">简介</a></li>
+                <li><a href="#">场景</a></li>
+                <li><a href="#">说明</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero 区 -->
+        <div class="hero">
+            <h1>稳定入口与信息框架</h1>
+            <p>无论是内容查询还是日常浏览，一个清晰的导航总能让操作更有条理。从结构出发，减少冗余路径，让每一次跳转都落在预期位置。</p>
+            <span class="tagline">基于轻量导航 · 页面说明</span>
+        </div>
+
+        <!-- 核心介绍 -->
+        <div class="intro-section">
+            <div class="card">
+                <h2>页面定位与边界</h2>
+                <p>本页为索引式介绍，围绕「稳定入口」概念展开。不堆砌功能，也不渲染流量，而是从信息组织的角度梳理三条常见使用路径。下方三个场景模块分别对应不同的访问习惯与需求层次，彼此独立但逻辑连贯。</p>
+                <p>所有内容均基于公开可描述的页面结构，不涉及具体数据或操作引导。若希望直接访问主站，可参考文末链接。</p>
+            </div>
+        </div>
+
+        <!-- 三个场景模块 -->
+        <div class="scenes-grid">
+            <div class="scene-card">
+                <h3>场景一 · 快速认知</h3>
+                <ul>
+                    <li>通过结构化摘要了解频道分类</li>
+                    <li>在首页获取关键术语与分区提示</li>
+                    <li>适合首次接触，希望先建立整体印象</li>
+                </ul>
+                <div class="meta-note">入口清晰，减少漫无目的的点击。</div>
+            </div>
+
+            <div class="scene-card">
+                <h3>场景二 · 稳定参照</h3>
+                <ul>
+                    <li>将常用页面添加至书签或笔记</li>
+                    <li>重复访问时依赖固定路径，减少查找时间</li>
+                    <li>适合日常需要参考同一信息源的场景</li>
+                </ul>
+                <div class="meta-note">一致的导航结构降低认知负担。</div>
+            </div>
+
+            <div class="scene-card">
+                <h3>场景三 · 轻量检索</h3>
+                <ul>
+                    <li>通过分区标题快速定位目标模块</li>
+                    <li>无需深层跳转即可判断内容相关性</li>
+                    <li>适合需要对比或回顾多个栏目的时候</li>
+                </ul>
+                <div class="meta-note">扁平化的展示让筛选更直接。</div>
+            </div>
+        </div>
+
+        <!-- 常见说明 (FAQ摘要) -->
+        <div class="faq-section">
+            <h2>常见说明</h2>
+            <div class="faq-item">
+                <strong>页面内容是否会频繁变动？</strong>
+                <p>导航与结构保持稳定，介绍性文字依据实际布局调整，不会出现突发性更替。如果主站有栏目更新，本页会对应修正场景描述。</p>
+            </div>
+            <div class="faq-item">
+                <strong>为什么强调“稳定入口”？</strong>
+                <p>对于需要重复访问同一资源的使用者而言，入口的可预测性直接影响效率。固定路径与一致的命名规则，是信息导航的基本要求。</p>
+            </div>
+            <div class="faq-item">
+                <strong>是否涵盖所有子页面？</strong>
+                <p>不追求穷举。本页提炼的是具有代表性的导航逻辑，具体深层页面请以实际站点地图为准。</p>
+            </div>
+            <div class="faq-item">
+                <strong>链接文本与跳转关系</strong>
+                <p>正文中出现的链接均指向对应站点首页，文本内容与目标保持一致。例如下方句子中嵌入的链接：若需要直接访问主站，可查阅 <a href="https://index-jcw.com">竞彩网</a> 的首页内容，其结构与本页介绍相互对应。</p>
+            </div>
+        </div>
+
+        <!-- 嵌入额外链接段落 (保证至少一个 a 标签且文本严格等于 竞彩网) -->
+        <div class="link-wrap">
+            <span>本页作为辅助索引，主体内容基于 <a href="https://index-jcw.com">竞彩网</a> 的公开信息框架编写。所有描述均保持客观，不构成使用建议。</span>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer-note">
+            © 导航说明页 · 仅用于展示结构与场景
+        </div>
+    </div>
+</body>
+</html>
